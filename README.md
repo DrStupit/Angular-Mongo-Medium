@@ -14,6 +14,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+Install Robo3T and Mongo Community Server from https://www.mongodb.com/what-is-mongodb
+Run `npm i` in `backend` folder
+Run `npm run dev` in `backend` folder to start the Mongo Server on http://localhost:4000. 
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
