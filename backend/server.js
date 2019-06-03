@@ -25,14 +25,16 @@ app.use('/', router);
 
 // routes for issues:
 
+// Get list of all isssues
 router.route('/issues').get((req, res) => {
-    Issue.find((err, issues) => {
-        if (err)
-            console.log(err);
-        else
-            res.json(issues);
+        Issue.find((err, issues) => {
+            if (err)
+                console.log(err);
+            else
+                res.json(issues);
+        })
     })
-})
+    // Get an Issue by ID
 router.route('/issues/:id').get((req, res) => {
     Issue.findById(req.params.id, (err, issue) => {
         if (err)
@@ -41,6 +43,7 @@ router.route('/issues/:id').get((req, res) => {
             res.json(issue);
     })
 });
+// Add new issue
 router.route('/issues/add').post((req, res) => {
     let issue = new Issue(req.body);
     issue.save()
@@ -51,6 +54,7 @@ router.route('/issues/add').post((req, res) => {
             res.status(400).send('Failed to create new record');
         });
 });
+// Update/ Edit an issue
 router.route('/issues/update/:id').post((req, res) => {
     Issue.findById(req.params.id, (err, issue) => {
         if (!issue)
@@ -69,6 +73,7 @@ router.route('/issues/update/:id').post((req, res) => {
         }
     });
 });
+// Delete an Issue
 router.route('/issues/delete/:id').get((req, res) => {
     Issue.findByIdAndRemove({ _id: req.params.id }, (err, issue) => {
         if (err)

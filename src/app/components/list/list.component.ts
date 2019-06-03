@@ -32,7 +32,7 @@ export class ListComponent implements OnInit {
     });
   }
 
-  edit(id) {
+  editIssue(id) {
     this.router.navigate([`/edit/${id}`]);
   }
 
